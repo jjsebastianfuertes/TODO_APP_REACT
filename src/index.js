@@ -52,19 +52,28 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
-        <div> To do task: {this.state.todos.length}</div>
-        <div>Done: {this.state.todos.filter(todo => todo.checked).length}</div>
+      <div className="container-global">
+        <h1>TODO APP WITH REACT</h1>
+        <div className="container-info-header">
+          <div> To do task: {this.state.todos.length}</div>
+          <div>
+            Done: {this.state.todos.filter(todo => todo.checked).length}
+          </div>
+        </div>
         <input
+          className="input-text"
           onChange={this.handleInput}
           type="text"
           placeholder="Write some task"
         />
         {console.log(this.state.todos)}
-        <button onClick={_ => this.onAddTodo(this.state.value)}>
+        <button
+          className="button-add"
+          onClick={_ => this.onAddTodo(this.state.value)}
+        >
           Add todo
         </button>
-        <ul>
+        <ul className="lista-ul">
           {this.state.todos.map(todo => (
             <Todo
               todo={todo}
